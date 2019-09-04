@@ -1,0 +1,16 @@
+{
+  "name": "nextucodbasebuscador_versionnode",
+  "version": "1.0.0",
+  "description": "Buscador para evaluación final",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariel Barajas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "socket.io": "^2.2.0"
+  }
+}
