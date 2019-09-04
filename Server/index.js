@@ -3,16 +3,18 @@ const http = require("http"),
     express = require("express"),
     routes = require("./routes")
 
-const port = process.env.PORT ||  8080,
+const port = process.env.PORT || 8080,
     app = express(),
     server = http.createServer(app)
 
 routes(app)
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 app.use(express.static("public"))
 
 server.listen(port, () => {
     console.log("servidor corriendo en http://localhost:" + port)
-});
+})

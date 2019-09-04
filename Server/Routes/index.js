@@ -5,10 +5,16 @@ const routes = (app) => {
     app.get("/search", (req, res) => {
         storage.getDataAll()
             .then((data) => {
-                res.json({ "error": false, "datos": data })
+                res.json({
+                    "error": false,
+                    "datos": data
+                })
             })
             .catch((err) => {
-                res.json({ "error": true, "datos": err })
+                res.json({
+                    "error": true,
+                    "datos": err
+                })
             })
     })
     app.get("/listas", (req, res) => {
@@ -24,10 +30,17 @@ const routes = (app) => {
                         tipos.push(key.Tipo)
                     }
                 })
-                res.json({ "error": false, "ciudades": ciudades, "tipos": tipos })
+                res.json({
+                    "error": false,
+                    "ciudades": ciudades,
+                    "tipos": tipos
+                })
             })
             .catch((err) => {
-                res.json({ "error": true, "err": err })
+                res.json({
+                    "error": true,
+                    "err": err
+                })
             })
     })
     app.get("/ciudad/:ciudadId/tipo/:tipoId/desde/:desdeVal/hasta/:hastaVal", (req, res) => {
@@ -57,7 +70,9 @@ const routes = (app) => {
 
                 if (params.tipoId != "todos") {
                     aux.forEach((key, idx) => {
-                        if (key.Tipo == params.tipoId) { arr2.push(key) }
+                        if (key.Tipo == params.tipoId) {
+                            arr2.push(key)
+                        }
                     })
                 } else {
                     arr2 = aux.slice()
@@ -70,10 +85,16 @@ const routes = (app) => {
                     }
                 })
 
-                res.status(200).json({ datos, params })
+                res.status(200).json({
+                    datos,
+                    params
+                })
             })
             .catch((err) => {
-                res.json({ "error": true, "err": err })
+                res.json({
+                    "error": true,
+                    "err": err
+                })
             })
     })
 }
